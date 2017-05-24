@@ -1,0 +1,11 @@
+{
+  "name": "nightlife-coord",
+  "version": "0.0.1",
+  "description": "View local bars and indicate if you're going",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Clayton Hadaway <me@hadaclay.com>",
+  "license": "MIT"
+}

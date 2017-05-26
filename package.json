@@ -6,13 +6,17 @@
     "node": ">= 7.6.0"
   },
   "scripts": {
-    "dev": "nodemon ./start.js",
-    "start": "node ./start.js"
+    "watch": "nodemon ./start.js --ignore public/",
+    "start": "node ./start.js",
+    "assets": "webpack -w --display-max-modules 0",
+    "dev": "concurrently \"npm run watch\" \"npm run assets\" "
   },
   "description": "View local bars and indicate if you're going",
   "author": "Clayton Hadaway <me@hadaclay.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.2",
     "dotenv": "^4.0.0",
     "express": "^4.15.3",
     "mongoose": "^4.10.2",
@@ -20,6 +24,11 @@
     "yelp-fusion": "^1.0.3"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "concurrently": "^3.4.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^2.6.1"
   }
 }

@@ -1,13 +1,20 @@
+include _barCard
+include _search
+
 doctype html
 html
   head
-    title Nightlife Coord
+    title NightLyfe
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway")
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
-    h1 Index
-    form.search
-      input(type="text" placeholder="Search for Location..." name="search")
-      input(type="submit" value="Submit")
+    section.hero.is-primary.is-bold
+      .hero-body
+        .container.has-text-centered
+          h1.title.is-1 NightLyfe
+          +search()
+    .container.section
       .results
     block scripts
       script(src="/dist/Client.bundle.js")

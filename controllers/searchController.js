@@ -1,7 +1,7 @@
 const yelp = require('yelp-fusion');
 
 exports.renderIndex = (req, res) => {
-  res.render('index');
+  res.render('index', { user: req.user });
 }
 
 exports.handleSearch = async (req, res) => {

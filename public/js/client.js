@@ -13,7 +13,9 @@ function makeCards(bars) {
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
-              <img src="${bar.image_url}">
+              <a href="${bar.url}">
+                <img src="${bar.image_url}">
+              </a>
             </figure>
           </div>
           <div class="card-content has-text-centered">

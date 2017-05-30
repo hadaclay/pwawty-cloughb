@@ -1,22 +1,35 @@
 const passport = require('passport');
 const Strategy = require('passport-twitter').Strategy;
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
+
+const verifyCallback = async (token, secret, profile, cb) => {
+  const user = await User.findOne({ userID: profile._json.id_str });
+  if (user !== null) return cb(null, user);
+
+  const newUser = new User({
+    userID: profile._json.id_str,
+    going: []
+  });
+  await newUser.save();
+  return cb(null, newUser);
+};
 
 passport.use(
   new Strategy(
     {
       consumerKey: process.env.TWITTER_KEY,
       consumerSecret: process.env.TWITTER_SECRET,
-      callbackURL: 'http://127.0.0.1:7777/login/return'
+      callbackURL: 'http://localhost:7777/login/return'
     },
-    (token, tokenSecret, profile, cb) => {
-      return cb(null, profile);
-    }
+    verifyCallback
   )
 );
 passport.serializeUser(function(user, cb) {
-  cb(null, user);
+  cb(null, user.userID);
 });
 
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
+passport.deserializeUser(async function(id, cb) {
+  const user = await User.findOne({ userID: id });
+  cb(null, user);
 });

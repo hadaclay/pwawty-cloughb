@@ -4,16 +4,17 @@ include _search
 doctype html
 html
   head
-    title NightLyfe
+    title= h.siteName
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css")
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     section.hero.is-primary.is-bold
       .hero-body
         .container.has-text-centered
-          h1.title.is-1 NightLyfe
+          h1.title.is-1= h.siteName
           +search()
     .container.section
       .results
+    pre= h.dump(user)
     block scripts
       script(src="/dist/Client.bundle.js")

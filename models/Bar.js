@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const findOrCreate = require('mongoose-findorcreate');
 mongoose.Promise = global.Promise;
 
 const barSchema = new mongoose.Schema({
@@ -14,5 +15,7 @@ const barSchema = new mongoose.Schema({
     { type: mongoose.Schema.ObjectId, ref: 'User' }
   ]
 });
+
+barSchema.plugin(findOrCreate);
 
 module.exports = mongoose.model('Bar', barSchema);

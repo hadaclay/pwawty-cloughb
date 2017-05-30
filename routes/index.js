@@ -7,7 +7,10 @@ router.get('/', searchController.renderIndex);
 router.get('/search', searchController.handleSearch);
 
 router.get('/login', authController.login);
-router.get('/login/return', authController.loginCallback);
+router.get('/login/return',
+  authController.login,
+  authController.loginCallback
+);
 
 //router.post('/going') // handle user clicking on going button
 

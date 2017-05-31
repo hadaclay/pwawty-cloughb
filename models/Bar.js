@@ -7,10 +7,6 @@ const barSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  amountGoing: {
-    type: Number,
-    default: 0
-  },
   usersGoing: [
     { type: mongoose.Schema.ObjectId, ref: 'User' }
   ]

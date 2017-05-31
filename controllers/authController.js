@@ -7,3 +7,10 @@ exports.login = passport.authenticate('twitter', { failureRedirect: '/' });
 exports.loginCallback = (req, res) => {
   res.redirect('/');
 };
+
+exports.isLoggedIn = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+};

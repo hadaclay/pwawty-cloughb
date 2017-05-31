@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const searchController = require('../controllers/searchController');
+const barController = require('../controllers/barController');
 const authController = require('../controllers/authController');
 
-router.get('/', searchController.renderIndex);
-router.get('/search', searchController.handleSearch);
+router.get('/', barController.renderIndex);
+router.get('/search', barController.handleSearch);
 
 router.get('/login', authController.login);
 router.get('/login/return',
@@ -12,6 +12,10 @@ router.get('/login/return',
   authController.loginCallback
 );
 
-//router.post('/going') // handle user clicking on going button
+// handle user clicking on going button
+router.post('/going/:id',
+  authController.isLoggedIn,
+  barController.addGoing
+);
 
 module.exports = router;

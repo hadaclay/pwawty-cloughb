@@ -20,7 +20,7 @@ function makeCards(bars) {
           </div>
           <div class="card-content has-text-centered">
             <h3 class="title is-3">${bar.name}</h3>
-            <button class="button">0 Going</button>
+            <button class="button">${bar.amountGoing || 0} Going</button>
           </div>
         </div>
       </div>
@@ -50,11 +50,15 @@ function handleSearch(e) {
   axios
     .get(`/search?q=${document.querySelector('input[name="search"]').value}`)
     .then(res => {
-      searchResults.innerHTML = dompurify.sanitize(makeCards(res.data));
+      searchResults.innerHTML = makeCards(res.data);
     })
-    .catch(err => {
-      console.error(err);
-    });
+    .catch(err => console.error(err));
+}
+
+function handleAdd(id) {
+  axios
+    .post(`/going/${id}`)
+    .catch(err => console.error(err));
 }
 
 searchForm.addEventListener('submit', handleSearch);

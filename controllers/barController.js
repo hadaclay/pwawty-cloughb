@@ -50,5 +50,6 @@ exports.addGoing = async (req, res) => {
     { [operator]: { going: await bar._id } }
   );
 
-  res.sendStatus(200);
+  if (operator === '$pull') return res.json({ success: 'remove' });
+  else return res.json({ success: 'add' });
 };

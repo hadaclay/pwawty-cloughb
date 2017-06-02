@@ -4,16 +4,36 @@ doctype html
 html
   head
     title= h.siteName
-    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css")
+    link(rel="stylesheet" href="/dist/style.css")
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
-    section.hero.is-primary.is-bold
+    //pre= h.dump(user)
+    section.hero.is-fullheight.is-dark
+      .hero-head
+        .container
+          nav.nav
+            .container
+              .nav-left
+                .nav-item
+                  h3= h.siteName
+              .nav-right
+                span.nav-item
+                  if user
+                    a.button.is-medium.is-primary.is-inverted.is-outlined(href="/logout") Logout
+                  else
+                    a.button.is-medium.is-primary.is-inverted.is-outlined(href="/login") Login
       .hero-body
         .container.has-text-centered
           h1.title.is-1= h.siteName
           +search()
-    .container.section
-      .results
-    pre= h.dump(user)
+    .wrapper
+      .container.section
+        .results
+    footer.footer
+      .container
+        .content.has-text-centered
+          p= h.siteName
+          p ©
+            a(href="https://hadaclay.com") Clayton Hadaway
     block scripts
       script(src="/dist/Client.bundle.js")

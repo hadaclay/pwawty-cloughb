@@ -11,6 +11,7 @@ router.get('/login/return',
   authController.login,
   authController.loginCallback
 );
+router.get('/logout', authController.logout);
 
 // handle user clicking on going button
 router.post('/going/:id',

@@ -12,10 +12,13 @@ exports.handleSearch = async (req, res) => {
   const clientId = process.env.YELP_CLIENT_ID;
   const clientSecret = process.env.YELP_CLIENT_SECRET;
 
+  req.session.q = req.query.q;
+
   // set up Yelp query
   const search = {
     location: req.query.q,
-    categories: 'bars' // limit query to bars
+    categories: 'bars', // limit query to bars
+    limit: 30
   };
 
   const tokenRequest = await yelp.accessToken(clientId, clientSecret);

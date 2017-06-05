@@ -8,28 +8,27 @@ import handleAdd from './modules/handleAdd';
 import makeCards from './modules/makeCards';
 import getParameterByName from './modules/getParameterByName';
 
+particlesJS.load('particles', 'particles.json');
+
 const searchResults = $('.results');
 const submitButton = $('#submit');
 $('.search').addEventListener('submit', handleSearch);
 
-window.onload = () => {
-  const query = getParameterByName('q');
+const query = getParameterByName('q');
+if (query) {
+  submitButton.classList.add('is-loading');
+  axios
+    .get(`/search?q=${query}`)
+    .then(res => {
+      searchResults.innerHTML = dompurify.sanitize(makeCards(res.data));
 
-  if (query) {
-    submitButton.classList.add('is-loading');
-    axios
-      .get(`/search?q=${query}`)
-      .then(res => {
-        searchResults.innerHTML = dompurify.sanitize(makeCards(res.data));
+      // Add handler to all .going forms
+      [...searchResults.querySelectorAll('.going')].map(form =>
+        form.addEventListener('submit', handleAdd)
+      );
 
-        // Add handler to all .going forms
-        [...searchResults.querySelectorAll('.going')].map(form =>
-          form.addEventListener('submit', handleAdd)
-        );
-
-        submitButton.classList.remove('is-loading');
-        searchResults.scrollIntoView({block: 'start', behavior: 'smooth'});
-      })
-      .catch(err => console.error(err));
-  }
-};
+      submitButton.classList.remove('is-loading');
+      searchResults.scrollIntoView({block: 'start', behavior: 'smooth'});
+    })
+    .catch(err => console.error(err));
+}

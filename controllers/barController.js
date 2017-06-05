@@ -39,9 +39,9 @@ exports.handleSearch = async (req, res) => {
 };
 
 exports.addGoing = async (req, res) => {
-  // 1. Get all bars user has marked
+  // Get all bars user has marked
   const bars = req.user.going.map(obj => obj.toString());
-  // 2. Determine if request is adding to or removing bar from set
+  // Determine if request is adding to or removing bar from set
   const operator = bars.includes(req.params.id) ? '$pull' : '$addToSet';
   const bar = await Bar.findByIdAndUpdate(
     req.params.id,

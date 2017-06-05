@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// Handler for when user clicks on 'going' button
 function handleAdd(e) {
   e.preventDefault();
 

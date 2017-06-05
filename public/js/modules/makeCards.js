@@ -1,3 +1,4 @@
+// Generate HTML from search JSON
 function makeCards(bars) {
   let output = [];
   // build columns from every result

@@ -5,35 +5,46 @@ html
   head
     title= h.siteName
     link(rel="stylesheet" href="/dist/style.css")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
-    //pre= h.dump(user)
     section.hero.is-fullheight.is-dark
+      #particles
       .hero-head
         .container
           nav.nav
             .container
               .nav-left
                 .nav-item
-                  h3= h.siteName
+                  img(src="logo.png" alt="Pwawty Cloughb Logo")
               .nav-right
                 span.nav-item
                   if user
                     a.button.is-medium.is-primary.is-inverted.is-outlined(href="/logout") Logout
                   else
                     a.button.is-medium.is-primary.is-inverted.is-outlined(href="/login") Login
+                    
       .hero-body
         .container.has-text-centered
+          span.icon
+            i.fa.fa-glass(style={'font-size': '5em', 'padding-bottom': '100px'})
           h1.title.is-1= h.siteName
           +search()
     .wrapper
       .container.section
         .results
-    footer.footer
+    footer.footer(style={"padding-bottom": "3rem"})
       .container
         .content.has-text-centered
           p= h.siteName
-          p ©
+          p Background Image by 
+            a(href="https://unsplash.com/") Unsplash.
+          p Made with 
+            a(href="http://bulma.io/") Bulma.
+          p © 
             a(href="https://hadaclay.com") Clayton Hadaway
+          a(href="https://github.com/hadaclay/pwawty-cloughb")
+            i.fa.fa-github
     block scripts
+      script(src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js')
       script(src="/dist/Client.bundle.js")

@@ -4,6 +4,11 @@ Local nightlife coordination app. Users input their location and can pick out lo
 ### What's the deal with the name?
 "Some towns have party clubs, but we've got our very own bona fide pwawty cloughb!" - Strong Bad, [SBEmail 185](http://www.homestarrunner.com/sbemail185.html)
 
+![Screenshot](/screenshot.png?raw=true)
+
+### Special Thanks
+To Wes Bos for his amazing [Learn Node](https://learnnode.com/) course. This project has a similar structure to the app in his course, thank you Wes!
+
 ### License
 Copyright 2017 Clayton Hadaway
 

@@ -15,7 +15,6 @@
   "author": "Clayton Hadaway <me@hadaclay.com>",
   "license": "MIT",
   "dependencies": {
-    "async": "^2.4.1",
     "axios": "^0.16.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
@@ -36,8 +35,8 @@
     "passport-twitter": "^1.0.4",
     "pug": "^2.0.0-rc.1",
     "sass-loader": "^6.0.5",
-    "yelp-fusion": "^1.0.3",
-    "webpack": "^2.6.1"
+    "webpack": "^2.6.1",
+    "yelp-fusion": "^1.0.3"
   },
   "devDependencies": {
     "concurrently": "^3.4.0",

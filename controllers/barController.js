@@ -1,6 +1,5 @@
 const yelp = require('yelp-fusion');
 const mongoose = require('mongoose');
-const async = require('async');
 const Bar = mongoose.model('Bar');
 const User = mongoose.model('User');
 

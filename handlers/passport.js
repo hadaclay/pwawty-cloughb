@@ -20,7 +20,7 @@ passport.use(
     {
       consumerKey: process.env.TWITTER_KEY,
       consumerSecret: process.env.TWITTER_SECRET,
-      callbackURL: 'http://localhost:7777/login/return'
+      callbackURL: `${process.env.SITE_URL}/login/return`
     },
     verifyCallback
   )

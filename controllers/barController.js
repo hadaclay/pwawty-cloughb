@@ -11,6 +11,7 @@ exports.handleSearch = async (req, res) => {
   const clientId = process.env.YELP_CLIENT_ID;
   const clientSecret = process.env.YELP_CLIENT_SECRET;
 
+  // Store query in session
   req.session.q = req.query.q;
 
   // set up Yelp query

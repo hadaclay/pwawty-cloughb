@@ -30,7 +30,7 @@ function handleSearch(e) {
       );
 
       submitButton.classList.remove('is-loading');
-      searchResults.scrollIntoView({block: 'start', behavior: 'smooth'});
+      searchResults.scrollIntoView({ block: 'start', behavior: 'smooth' });
     })
     .catch(err => console.error(err));
 }

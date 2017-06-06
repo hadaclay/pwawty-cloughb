@@ -7,16 +7,10 @@ router.get('/', barController.renderIndex);
 router.get('/search', barController.handleSearch);
 
 router.get('/login', authController.login);
-router.get('/login/return',
-  authController.login,
-  authController.loginCallback
-);
+router.get('/login/return', authController.login, authController.loginCallback);
 router.get('/logout', authController.logout);
 
 // handle user clicking on going button
-router.post('/going/:id',
-  authController.isLoggedIn,
-  barController.addGoing
-);
+router.post('/going/:id', authController.isLoggedIn, barController.addGoing);
 
 module.exports = router;

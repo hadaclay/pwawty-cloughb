@@ -9,7 +9,14 @@ const userSchema = new mongoose.Schema({
   },
   going: [
     { type: mongoose.Schema.ObjectId, ref: 'Bar' }
-  ]
+  ],
+  // Wipe out docs after 16 hours
+  // not a great solution, but works for the purposes of this project
+  createdAt: {
+    type: Date,
+    expires: '16h',
+    default: Date.now
+  }
 });
 
 module.exports = mongoose.model('User', userSchema);

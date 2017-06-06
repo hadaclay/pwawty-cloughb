@@ -9,7 +9,7 @@
     "start": "npm run build && node ./start.js",
     "watch": "nodemon ./start.js --ignore public/",
     "build": "webpack --display-max-modules 0",
-    "dev": "concurrently \"npm run watch\" \"npm run assets\" "
+    "dev": "concurrently \"npm run watch\" \"npm run build\" "
   },
   "description": "View local bars and indicate if you're going",
   "author": "Clayton Hadaway <me@hadaclay.com>",

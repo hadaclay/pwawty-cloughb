@@ -9,7 +9,14 @@ const barSchema = new mongoose.Schema({
   },
   usersGoing: [
     { type: mongoose.Schema.ObjectId, ref: 'User' }
-  ]
+  ],
+  // Wipe out docs after 16 hours
+  // not a great solution, but works for the purposes of this project
+  createdAt: {
+    type: Date,
+    expires: '16h',
+    default: Date.now
+  }
 });
 
 barSchema.plugin(findOrCreate);

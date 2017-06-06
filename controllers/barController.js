@@ -28,6 +28,7 @@ exports.handleSearch = async (req, res) => {
   const yelpResult = await client.search(search);
   const yelpResultJSON = await yelpResult.jsonBody.businesses;
 
+  // Map over every yelp result and add to DB
   const promises = yelpResultJSON.map(async bar => {
     const barDoc = await Bar.findOrCreate({ yelpSlug: bar.id });
     bar.amountGoing = barDoc.doc.usersGoing.length;
